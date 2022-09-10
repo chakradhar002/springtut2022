@@ -1,5 +1,8 @@
 package com.demo.poroductdaoimpl;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -61,6 +64,15 @@ public class ProductDaoImpl implements ProductDao {
 		session.close();
 		return "deleted";
 	
+	}
+
+	@Override
+	public List<Product> getProductList() {
+		session = HibernateUtil.getSessionFactory().openSession();
+		transcation = session.beginTransaction();
+		Query query = session.createQuery("from Product");
+		List<Product> productList = query.list();
+		return productList;
 	}
 
 }

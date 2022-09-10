@@ -1,5 +1,7 @@
 package com.demo.poroductdao;
 
+import java.util.List;
+
 import com.demo.entity.Product;
 
 public interface ProductDao {
@@ -12,5 +14,7 @@ public interface ProductDao {
  	
  	//delete by id
  	String deleteProductById(long id);
+ 	//list
+ 	List<Product> getProductList();
 
 }

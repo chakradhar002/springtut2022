@@ -1,5 +1,7 @@
 package com.demo.mainClient;
 
+import java.util.List;
+
 import com.demo.entity.Product;
 import com.demo.poroductdao.ProductDao;
 import com.demo.poroductdaoimpl.ProductDaoImpl;
@@ -26,13 +28,19 @@ public static void main(String ar[]) {
 	
 	System.out.println("end..");
 	
-	String deletedrecored =l.deleteProductById(1);
+	//String deletedrecored =l.deleteProductById(1);
 	
-	if(deletedrecored!="") {
+	//if(deletedrecored!="") {
 		
-		System.out.println("deleted");
-	}else {
-		System.out.println(" not deleted");
+	//	System.out.println("deleted");
+	//}else {
+	//	System.out.println(" not deleted");
+	//}
+	
+   List<Product> productList= l.getProductList();
+   
+   for(Product prdt : productList){
+		System.out.println("List of Products::"+prdt.getId()+","+prdt.getName()+""+prdt.getColor());
 	}
 	
 }
